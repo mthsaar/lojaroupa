@@ -43,13 +43,13 @@ int main()
     
     
     if (strcmp(email, emailcad)==0 && senha == senhacad) {
-        printf("Seus dados estão corretos! Por favor, tente novamente!");
+        printf("Seus dados estão corretos!");
         
         break;
     }    
         
     else {
-        printf("Seus dados estão incorretos!");
+        printf("Seus dados estão incorretos!  Por favor, tente novamente!");
     }
     }
     return 0;
