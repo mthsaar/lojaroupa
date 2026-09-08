@@ -3,6 +3,56 @@
 
 int main() {
     
+    char nomecad[100], emailcad[100], cpfcad[12],email[100];
+    int senhacad, senha;
+    
+    //sistema cadastro de clientes
+    
+    printf("Nome completo: ");
+    scanf(" %99[^\n]", nomecad);
+
+    printf("Email: ");
+    scanf(" %99s", emailcad);
+    
+    printf("Senha: ");
+    scanf("%d", &senhacad);
+    
+    printf("CPF: ");
+    scanf("%11s", cpfcad);
+    
+    printf("\nSeus dados cadastrado: \n");
+    
+    printf("\nNome: %s\n", nomecad);
+    printf("email: %s\n", emailcad);
+    printf("Senha: %d\n", senhacad);
+    printf("CPF: %s\n ", cpfcad);
+    
+    //Sistema de login
+    
+    while(1) {
+    
+    printf("\nLogin:\n ");
+    
+    printf("\nEmail: ");
+    scanf("%99s", email);
+    
+    printf("Senha: ");
+    scanf("%d", &senha);
+    
+    //verificador login
+    
+    
+    if (strcmp(email, emailcad)==0 && senha == senhacad) {
+        printf("Seus dados estão corretos! Por favor, tente novamente!");
+        
+        break;
+    }    
+        
+    else {
+        printf("Seus dados estão incorretos!");
+    }
+    }
+
     //cadastro
 
     //carrinho de compra
@@ -13,13 +63,13 @@ int main() {
     int v1
     int v2
     char cupom
-    char polo
-    char cbasica
-    char cjeans
-    char moletom
-    char jaqueta
+    char polo == ID1
+    char cbasica == ID2
+    char cjeans == ID3
+    char moletom == ID4
+    char jaqueta == ID5
 
-    V1 = (polo*50) + (cbasica*30) + (cjeans*80) + (moletom*100) + (jaqueta*150)
+    V1 = (polo*ID1) + (cbasica*ID2) + (cjeans*ID3) + (moletom*ID4) + (jaqueta*ID5)
 
     printf("O valor total da compra foi de %d reais", v1)
     printf("Você possui cupom de desconto? S/N")
