@@ -20,7 +20,7 @@ int main() {
     printf("CPF: ");
     scanf("%11s", cpfcad);
     
-    printf("\nSeus dados cadastrado: \n");
+    printf("\nSeus dados de cadastro: \n");
     
     printf("\nNome: %s\n", nomecad);
     printf("email: %s\n", emailcad);
