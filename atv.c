@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
-    
+int main()
+{
     char nomecad[100], emailcad[100], cpfcad[12],email[100];
     int senhacad, senha;
     
@@ -20,7 +20,7 @@ int main() {
     printf("CPF: ");
     scanf("%11s", cpfcad);
     
-    printf("\nSeus dados de cadastro: \n");
+    printf("\nSeus dados cadastrado: \n");
     
     printf("\nNome: %s\n", nomecad);
     printf("email: %s\n", emailcad);
@@ -43,15 +43,17 @@ int main() {
     
     
     if (strcmp(email, emailcad)==0 && senha == senhacad) {
-        printf("Seus dados estão corretos! Por favor, tente novamente!");
+        printf("Seus dados estão corretos!");
         
         break;
     }    
         
     else {
-        printf("Seus dados estão incorretos!");
+        printf("Seus dados estão incorretos!  Por favor, tente novamente!");
     }
     }
+    return 0;
+}
 
     //cadastro
 
