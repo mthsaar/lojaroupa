@@ -59,30 +59,30 @@ int main() {
     
     
     //pagamento
-    int pgto
-    int v1
-    int v2
-    char cupom
-    float polo
-    float cbasica
-    float cjeans
-    float moletom
-    float jaqueta
+    int pgto;
+    float v1 = 0.0f;
+    float v2 = 0.0f;
+    char cupom;
+    float polo;
+    float cbasica;
+    float cjeans;
+    float moletom;
+    float jaqueta;
 
-    V1 = (polo*ID1) + (cbasica*ID2) + (cjeans*ID3) + (moletom*ID4) + (jaqueta*ID5)
+    printf("O valor total da compra foi de %.2f reais\n", v1);
+    printf("Você possui cupom de desconto? S/N: ");
+    scanf(" %c", &cupom);
 
-    printf("O valor total da compra foi de %.2f reais", v1)
-    printf("Você possui cupom de desconto? S/N")
-    scanf("%c", &cupom)
-    if (cupom == "PROMO10")
-    {
-       v2 = v1 - (v1*0.10)
-       printf("O valor com desconto é de %.2f reais", v2)
-    } else { 
-        v2 = v1
+    if (cupom == 'promo10' || cupom == 'PROMO10') {
+        v2 = v1 - (v1 * 0.10f);
+        printf("O valor com desconto é de %.2f reais\n", v2);
+    } else {
+        v2 = v1;
+        printf("O valor sem desconto é de %.2f reais\n", v2);
     }
-    printf("Selecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito")
-    scanf("%d", &pgto)
+
+    printf("Selecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito: ");
+    scanf("%d", &pgto);
 
     //relatório
 
