@@ -63,21 +63,21 @@ int main() {
     int v1
     int v2
     char cupom
-    char polo == ID1
-    char cbasica == ID2
-    char cjeans == ID3
-    char moletom == ID4
-    char jaqueta == ID5
+    float polo
+    float cbasica
+    float cjeans
+    float moletom
+    float jaqueta
 
     V1 = (polo*ID1) + (cbasica*ID2) + (cjeans*ID3) + (moletom*ID4) + (jaqueta*ID5)
 
-    printf("O valor total da compra foi de %d reais", v1)
+    printf("O valor total da compra foi de %.2f reais", v1)
     printf("Você possui cupom de desconto? S/N")
     scanf("%c", &cupom)
     if (cupom == "PROMO10")
     {
        v2 = v1 - (v1*0.10)
-       printf("O valor com desconto é de %d reais", v2)
+       printf("O valor com desconto é de %.2f reais", v2)
     } else { 
         v2 = v1
     }
