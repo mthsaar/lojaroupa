@@ -45,7 +45,66 @@ int main()
     }
 
     //carrinho de compra
-    
+#include <stdio.h>
+    int produto;
+    int quantidade;
+    int continuar = 1;
+    char tamanho;
+    float total = 0;
+    float preco;
+int main() {
+printf("\nBem vindo a Casuality\n");
+        printf("1 - Camisa Polo - R$ 99.99\n");
+        printf("2 - Camiseta basica - R$ 132.99\n");
+        printf("3 - Calca jeans - R$ 84.99\n");
+        printf("4 - Moletom preto - R$ 199.99\n");
+        printf("5 - Jaqueta - R$ 59.99\n");
+    while (continuar == 1) {
+
+        printf("Escolha o produto: ");
+        scanf("%d", &produto);
+
+        switch (produto) {
+
+            case 1:
+                preco = 99.99;
+                break;
+
+            case 2:
+                preco = 132.99;
+                break;
+
+            case 3:
+                preco = 84.99;
+                break;
+
+            case 4:
+                preco = 199.99;
+                break;
+
+            case 5:
+                preco = 59.99;
+                break;
+
+            default:
+                printf("Produto invalido!\n");
+                continue;
+        }
+        printf("\nEscolha o tamanho:P - Pequeno M - Medio G - Grande\n");
+        scanf(" %c", &tamanho);
+        printf("Digite a quantidade: ");
+        scanf("%d", &quantidade);
+
+        total = total + (preco * quantidade);
+
+        printf("Produto adicionado ao carrinho!\n");
+
+        printf("\nDeseja adicionar outro produto?1-sim ou 0-não\n");
+        scanf("%d", &continuar);
+    }
+    printf("Total do carrinho: R$ %.2f\n", total);
+
+}
     
     //pagamento
     int pgto;
