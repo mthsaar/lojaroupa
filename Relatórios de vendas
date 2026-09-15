@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    float valorTotal;
+    int TotalQuantVend;
+    
+    valorTotal<-0;
+    TotalQuantVend<-0;
+    
+    valorTotal<-preco+valorTotal;
+    TotalQuantVend<-TotalQuantVend+QuantVend;
+    
+    printf("Relatório de vendas: ");
+    printf("\nQuantidade produtos totais vendidos: %d\n ");
+    printf("Quantidade produtos totais: %d");
+    
+
+    return 0;
+}
