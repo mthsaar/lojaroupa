@@ -9,11 +9,13 @@ int main()
     TotalQuantVend<-0;
     
     valorTotal<-preco+valorTotal;
-    TotalQuantVend<-TotalQuantVend+QuantVend;
+    TotalQuantVend<-TotalQuantVend+quantidade;
     
     printf("Relatório de vendas: ");
     printf("\nQuantidade produtos totais vendidos: %d\n ");
     printf("Quantidade produtos totais: %d");
+
+//As variáveis não declaradas nesse códigos estarão cadastrada no algoritmo do carrinho
     
 
     return 0;
