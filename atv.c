@@ -1,13 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
-{
-    //variáveis
-    char nomecad[100], emailcad[100], cpfcad[12],email[100], tamanho[1], cupom[7];
-    int senhacad, senha, produto, quantidade, opcao, continuar = 1, contador, opcupom;
-    float total = 0, preco;
-    
+void cadastro();
+void login();
+void carrinho();
+void pagamento();
+void relatorio();
+
+char nomecad[100], emailcad[100], cpfcad[12],email[100], tamanho, cupom[20];
+int senhacad, senha, produto, quantidade, opcao, continuar, contador = 0, opcupom, pgto, continuar_compra = 1;
+float total = 0, preco, ttotal = 0;
+
+int main() { 
     printf("Bem vindo a Casuality!\n");
     printf("Selecione uma opção:\n");
     printf("1 - Cadastrar cliente\n");
@@ -40,10 +44,12 @@ int main()
     } else {
         printf("Opção inválida!\n");
     }
+    return 0;
+}
 
 
     //sistema cadastro de clientes
-    cadastro(
+    void cadastro() {
         printf("Bem vindo ao sistema de cadastro de clientes da Casuality!\n");
         printf("Digite seu nome completo: ");
         scanf(" %99[^\n]", nomecad);
@@ -59,31 +65,37 @@ int main()
         printf("email: %s\n", emailcad);
         printf("Senha: %d\n", senhacad);
         printf("CPF: %s\n ", cpfcad);
-    );
+        printf("Cadastro realizado com sucesso! Seguir para login? 1 - Sim ou 0 - Não\n");
+        scanf("%d", &continuar);
+        if (continuar == 1) {
+            printf("Seguindo para login...\n");
+            login();
 
-    login(    
-    //Sistema de login
-        while(1) {
+        } else {
+            printf("Saindo do sistema...\n");
+            return;
+        }
+    }
+
+    void login() {    
         printf("\nBem vindo ao sistema de login da Casuality!\n");
         printf("\nLogin:\n ");
         printf("\nEmail: ");
         scanf("%99s", email);
         printf("Senha: ");
         scanf("%d", &senha);
-        //verificador login
+            //verificador login
         if (strcmp(email, emailcad)==0 && senha == senhacad) {
-            printf("Seus dados estão corretos!");
-            break;
+        printf("Seus dados estão corretos!");
+        carrinho();
         } else {
-        printf("Seus dados estão incorretos!  Por favor, tente novamente!");
+            printf("Seus dados estão incorretos!  Por favor, tente novamente!");
+            cadastro();
         }
-        }
-    );
+    }
 
- //carrinho de compra
-
-    
-    carrinho(
+    //carrinho de compra
+    void carrinho() {
         printf("\nBem vindo ao carrinho da Casuality, essas são as opções disponíveis:\n");
         printf("1 - Camisa Polo - R$ 99.99\n");
         printf("2 - Camiseta basica - R$ 132.99\n");
@@ -91,9 +103,9 @@ int main()
         printf("4 - Moletom preto - R$ 199.99\n");
         printf("5 - Jaqueta - R$ 59.99\n");
     
-        while (continuar == 1) {
-        printf("Escolha o produto: ");
-        scanf("%d", &produto);
+        while (continuar_compra == 1) {
+            printf("Escolha o produto: ");
+            scanf("%d", &produto);
 
             switch (produto) {
                 case 1:
@@ -115,26 +127,26 @@ int main()
                     printf("Produto invalido!\n");
                 continue;
             }
-        printf("\nEscolha o tamanho: P - Pequeno, M - Medio, G - Grande\n");
-        scanf(" %c", &tamanho);
-        printf("Digite a quantidade: ");
-        scanf("%d", &quantidade);
+            printf("\nEscolha o tamanho: P - Pequeno, M - Medio, G - Grande\n");
+            scanf(" %c", &tamanho);
+            printf("Digite a quantidade: ");
+            scanf("%d", &quantidade);
 
-        total = total + (preco * quantidade);
+            total = total + (preco * quantidade);
 
-        printf("Produto adicionado ao carrinho!\n");
-        printf("\nDeseja adicionar outro produto? 1 - Sim ou 0 - Não\n");
-        scanf("%d", &continuar);
+            printf("Produto adicionado ao carrinho!\n");
+            printf("\nDeseja adicionar outro produto? Digite 1 - Sim ou 0 - Não\n");
+            scanf("%d", &continuar_compra);
         }
 
         printf("Total do carrinho: R$ %.2f\n", total);
-        return total;
-    );
+        pagamento();
+    }
     
-    //pagamento
-    pagamento(
-       printf("Você possui cupom de desconto?1 - Sim ou 0 - Não\n ");
-       scanf(" %19s", opcupom);
+
+    void pagamento() {
+       printf("Você possui cupom de desconto? Digite 1 - Sim ou 0 - Não\n ");
+       scanf("%d", &opcupom);
        if (opcupom == 1) {
             printf("Digite o cupom de desconto: ");
             scanf(" %19s", cupom);
@@ -150,11 +162,14 @@ int main()
 
         printf("Selecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito: ");
         scanf("%d", &pgto);
-        
-    );
-    //relatório
-
-
-
-return 0;
-}
+        printf("Pagamento realizado com sucesso! Obrigado por comprar na Casuality!\n");
+        ttotal = ttotal + total;
+        contador = contador + 1;
+        login();
+    }
+  
+    void relatorio() {
+        printf("Relatório de vendas:\n");
+        printf("Total de vendas: R$ %.2f\n", ttotal);
+        printf("Total de produtos vendidos: %d\n", contador);
+    }
