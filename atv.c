@@ -4,8 +4,8 @@
 int main()
 {
     //variáveis
-    char nomecad[100], emailcad[100], cpfcad[12],email[100], tamanho[1];
-    int senhacad, senha, produto, quantidade, opcao, continuar = 1;
+    char nomecad[100], emailcad[100], cpfcad[12],email[100], tamanho[1], cupom[7];
+    int senhacad, senha, produto, quantidade, opcao, continuar = 1, contador, opcupom;
     float total = 0, preco;
     
     printf("Bem vindo a Casuality!\n");
@@ -132,32 +132,26 @@ int main()
     );
     
     //pagamento
-    int opcupom;
-    float v1 = 0.0f;
-    float v2 = 0.0f;
-    char cupom[7];
-    float polo;
-    float cbasica;
-    float cjeans;
-    float moletom;
-    float jaqueta;
+    pagamento(
+       printf("Você possui cupom de desconto?1 - Sim ou 0 - Não\n ");
+       scanf(" %19s", opcupom);
+       if (opcupom == 1) {
+            printf("Digite o cupom de desconto: ");
+            scanf(" %19s", cupom);
+            if (strcmp(cupom, "PROMO10") == 0) {
+            total = total - (total * 0.10f);
+            printf("O valor com desconto é de %.2f reais\n", total);
+            } else {
+            printf("Cupom inválido! O valor sem desconto é de %.2f reais\n", total);
+            }
+        } else {
+        printf("O valor sem desconto é de %.2f reais\n", total);
+        }  
 
-    printf("Você possui cupom de desconto? S/N: ");
-    scanf(" %19s", opcupom);
-    printf("Digite um cupom válido: ");
-    scanf(" %19s", cupom);
-
-    if (strcmp(cupom, "promo10") == 0 || strcmp(cupom, "PROMO10") == 0) {
-        v2 = v1 - (v1 * 0.10f);
-        printf("O valor com desconto é de %.2f reais\n", v2);
-    } else {
-        v2 = v1;
-        printf("O valor sem desconto é de %.2f reais\n", v2);
-    }
-
-    printf("Selecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito: ");
-    scanf("%d", &pgto);
-
+        printf("Selecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito: ");
+        scanf("%d", &pgto);
+        
+    );
     //relatório
 
 
