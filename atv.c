@@ -8,7 +8,7 @@ void pagamento();
 void relatorio();
 
 char nomecad[100], emailcad[100], cpfcad[12],email[100], tamanho, cupom[20];
-int senhacad, senha, produto, quantidade, opcao, continuar, contador = 0, opcupom, pgto, continuar_compra = 1;
+int senhacad, senha, produto, quantidade, opcao, continuar, contador = 0, opcupom, pgto, continuar_compra = 1, quantTotal=0;
 float total = 0, preco, ttotal = 0;
 
 int main() { 
@@ -90,12 +90,12 @@ int main() {
         carrinho();
         } else {
             printf("Seus dados estão incorretos!  Por favor, tente novamente!");
-            cadastro();
+            login();
         }
     }
 
     //carrinho de compra
-    void carrinho() {
+   void carrinho() {
         printf("\nBem vindo ao carrinho da Casuality, essas são as opções disponíveis:\n");
         printf("1 - Camisa Polo - R$ 99.99\n");
         printf("2 - Camiseta basica - R$ 132.99\n");
@@ -165,11 +165,13 @@ int main() {
         printf("Pagamento realizado com sucesso! Obrigado por comprar na Casuality!\n");
         ttotal = ttotal + total;
         contador = contador + 1;
-        login();
+        quantTotal = quantTotal+quantidade;
+        main();
     }
   
     void relatorio() {
         printf("Relatório de vendas:\n");
         printf("Total de vendas: R$ %.2f\n", ttotal);
         printf("Total de produtos vendidos: %d\n", contador);
+        printf("Total de itens vendidos: %d\n", quantTotal);
     }
