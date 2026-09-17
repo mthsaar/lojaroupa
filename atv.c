@@ -63,8 +63,11 @@ int main() {
             printf("Seguindo para login...\n");
             login();
 
-        } else {
+        } else if (continuar == 0 {
             printf("Saindo do sistema...\n");
+            return;
+        } else {
+            printf("\nOpcao inválida!");
             return;
         }
     }
@@ -87,9 +90,12 @@ int main() {
             scanf("%d", &login2);
             if (login2 == 1) {
                 login();
-            } else {
+            } else if (login2 == 2) {
                 cadastro();
-            }   
+            } else {
+                printf("\nOpcao inválida!");
+                return;
+            }
         }
     }
 
@@ -159,7 +165,7 @@ int main() {
         printf("O valor sem desconto é de %.2f reais\n", total);
         }  
 
-        printf("Selecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito: ");
+        printf("\nSelecione a forma de pagamento: 1 - Pix, 2 - Débito, 3 - Crédito: ");
         scanf("%d", &pgto);
         printf("\nPagamento realizado com sucesso! Obrigado por comprar na Casuality!\n");
         ttotal = ttotal + total;
