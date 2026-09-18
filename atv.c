@@ -44,19 +44,22 @@ int main() {
             printf("É necessário realizar o cadastro primeiro!\n");
             main();
         }
+
         //relatório
     } else if (opcao == 4) {
         printf("Saindo do sistema...\n");
         return 0;
+
     } else {
         printf("Opção inválida!\n");
     }
-
     return 0;
 }
 //sistema cadastro de clientes
 void cadastro() {
+
     printf("Bem vindo ao sistema de cadastro de clientes da Casuality!\n");
+
     printf("Digite seu nome completo: ");
     scanf(" %99[^\n]", nomecad);
 
@@ -65,16 +68,19 @@ void cadastro() {
 
     printf("Digite sua senha: ");
     scanf("%d", &senhacad);
-    
+
     printf("Digite seu CPF: ");
     scanf("%11s", cpfcad);
+
     cadastrado = 1;
-    
+
     printf("\nEsses seus dados cadastrados: \n");
+
     printf("\nNome: %s\n", nomecad);
     printf("email: %s\n", emailcad);
     printf("Senha: %d\n", senhacad);
     printf("CPF: %s\n ", cpfcad);
+
     printf("Cadastro realizado com sucesso! Seguir para login? 1 - Sim ou 0 - Não\n");
     scanf("%d", &continuar);
 
@@ -83,29 +89,39 @@ void cadastro() {
         login();
 
     } else if (continuar == 0) {
-        printf("Saindo do sistema...\n");
-        return;
-        
+    printf("Voltando para o menu...\n");
+    main();
+
     } else {
         printf("\nOpcao inválida!");
         return;
     }
 }
+
+
 void login() {    
+
     printf("\nBem vindo ao sistema de login da Casuality!\n");
+
     printf("\nLogin:\n ");
+
     printf("\nEmail: ");
     scanf("%99s", email);
-    
+
     printf("Senha: ");
     scanf("%d", &senha);
+
     //verificador login
     if (strcmp(email, emailcad)==0 && senha == senhacad) {
+
         printf("Seus dados estão corretos!");
+
         carrinho();
-        
+
     } else {
+
         printf("\nSeus dados estão incorretos!  Por favor, tente novamente!");
+
         printf("\nDigite 1 para retornar ao login");
         scanf("%d", &login2);
 
@@ -118,6 +134,8 @@ void login() {
         }
     }
 }
+
+
 //carrinho de compra
 void carrinho() {
 
@@ -130,6 +148,7 @@ void carrinho() {
     printf("5 - Jaqueta - R$ 59.99\n");
 
     while (continuar_compra == 1) {
+
         printf("Escolha o produto: ");
         scanf("%d", &produto);
 
@@ -178,6 +197,7 @@ void carrinho() {
     pagamento();
 }
 void pagamento() {
+
     printf("\nVocê possui cupom de desconto? Digite 1 - Sim ou 0 - Não\n ");
     scanf("%d", &opcupom);
     if (opcupom == 1) {
@@ -199,6 +219,7 @@ void pagamento() {
     main();
 }
 void relatorio() {
+    
     printf("Relatório de vendas:\n");
     printf("Total de vendas: R$ %.2f\n", ttotal);
     printf("Total de produtos vendidos: %d\n", contador);
