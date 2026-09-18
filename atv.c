@@ -63,7 +63,7 @@ int main() {
             printf("Seguindo para login...\n");
             login();
 
-        } else if (continuar == 0 {
+        } else if (continuar == 0) {
             printf("Saindo do sistema...\n");
             return;
         } else {
